@@ -111,6 +111,10 @@ input[type=submit]{
 	padding: 10px;
 	width: 210%;
 }
+input[type=date]{
+	padding: 10px;
+	width: 200%;
+}
 table{
 	position: absolute;
 	top:10%;

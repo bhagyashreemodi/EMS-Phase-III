@@ -21,14 +21,14 @@
       </ul>
     </div>
     <div class="search">
-    	<form action="controller?action=search" method="post" name="searchForm">
+    	<form action="controller?action=search" method="post">
     		<select name="criteria">
     			<option>select Search Criteria</option>
     			<option value="name">name</option>
     			<option value="kinId">kin ID</option>
     			<option value="emailId">emailId</option>
-    		</select>
-    		<input type="text" name="value" placeholder="enter the value">
+    		</select><br><br>
+    		<input type="text" name="value" placeholder="enter the value"><br><br>
     		<input type="submit" name="search" value="Search"> 
     	</form>
     
