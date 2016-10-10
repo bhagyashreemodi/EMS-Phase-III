@@ -45,7 +45,7 @@
   	<form action="controller?action=modify" method="post">
   	<tr>
   	
-    	<td><input type="submit" name="Save" value=<%=employee.get("kinId") %>></td>
+    	<td><input type="submit" name="Save" value=<%=employee.get("kinId") %> style=""></td>
     	<td><input type="text" name="name" value="<%= employee.get("name") %>"></td>
     	<td><input type="text" name="address" value="<%= employee.get("address") %>"></td>
     	<td><input type="text" name="phoneNumber" value=<%= employee.get("phoneNumber") %>></td>

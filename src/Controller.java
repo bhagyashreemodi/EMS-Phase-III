@@ -134,7 +134,8 @@ public class Controller extends HttpServlet{
 			try {
 				employees = employeeService.searchEmployee(employee);
 				HttpSession session = request.getSession();
-				session.setAttribute("employeesMap", employees);
+				session.setAttribute("employees", employees);
+				response.sendRedirect("getAll.jsp");
 			} catch (Exception e) {
 				e.printStackTrace();
 			}
