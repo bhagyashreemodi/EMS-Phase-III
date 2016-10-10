@@ -140,6 +140,34 @@ public class Controller extends HttpServlet{
 				e.printStackTrace();
 			}
 		}
+		else if(action.equalsIgnoreCase("searchModify")){
+			HashMap<String, String> employee = new HashMap<String,String>();
+			ArrayList	<HashMap<String, String>> employees = new ArrayList<HashMap<String, String>>();
+			String criteria = request.getParameter("criteria");
+			String value=request.getParameter("value");
+			switch (criteria) {
+			case "name":
+				employee.put("name", value);
+				break;
+			case "kinId":
+				employee.put("kinId", value);
+				break;
+				
+			case "emailId":
+				employee.put("emailId", value);
+				break;
+			default:
+				break;
+			}
+			try {
+				employees = employeeService.searchEmployee(employee);
+				HttpSession session = request.getSession();
+				session.setAttribute("employees", employees);
+				response.sendRedirect("modifyEmployee.jsp");
+			} catch (Exception e) {
+				e.printStackTrace();
+			}
+		}
 		
 		
 	}

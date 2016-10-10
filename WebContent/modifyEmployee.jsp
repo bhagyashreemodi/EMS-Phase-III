@@ -24,8 +24,17 @@
       </ul>
     </div>
     <div class="modify">
-    	
-    	<table>
+    	<form action="controller?action=searchModify" method="post">
+    		<select name="criteria">
+    			<option>select Search Criteria</option>
+    			<option value="name">name</option>
+    			<option value="kinId">kin ID</option>
+    			<option value="emailId">emailId</option>
+    		</select><br><br>
+    		<input type="text" name="value" placeholder="enter the value"><br><br>
+    		<input type="submit" name="search" value="Search"> 
+    	</form>
+    	<table style="top:40%">
   <tr>
     <th>Kin ID</th>
     <th>Name</th>
