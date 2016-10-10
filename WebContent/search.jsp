@@ -21,7 +21,7 @@
       </ul>
     </div>
     <div class="search">
-    	<form action="controller?action=search" method="post">
+    	<form action="controller?action=search" method="post" name="searchForm">
     		<select name="criteria">
     			<option>select Search Criteria</option>
     			<option value="name">name</option>
