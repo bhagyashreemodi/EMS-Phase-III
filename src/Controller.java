@@ -20,6 +20,7 @@ public class Controller extends HttpServlet{
 	private String ACTION_SEARCH = "search";
 	private String ACTION_SEEALL = "seeAll";
 	private String ACTION_GETALL = "getAll";
+	private String ACTION_REMOVE = "remove";
 	private EmployeeServiceImpl employeeService = new EmployeeServiceImpl();
 	
 	
@@ -78,14 +79,18 @@ public class Controller extends HttpServlet{
 			
 		}
 		else if(action.equalsIgnoreCase(ACTION_SEEALL)){
+		
 			try {
 				ArrayList<HashMap<String, String>> employees = employeeService.getAllEmployee();
+				if(employees == null || employees.size() == 0){
+					
+				}
 				request.setAttribute("employees", employees);
 				HttpSession session = request.getSession();
 				session.setAttribute("employees", employees);
-				//RequestDispatcher dispatcher = request.getRequestDispatcher("modifyEmployee.jsp");
+				//RequestDispatcher dispatcher = request.getRequestDispatcher();
 				//dispatcher.forward(request, response);
-				response.sendRedirect("modifyEmployee.jsp");
+				response.sendRedirect(request.getParameter("page"));
 				
 				
 			} catch (Exception e) {
@@ -167,6 +172,58 @@ public class Controller extends HttpServlet{
 			} catch (Exception e) {
 				e.printStackTrace();
 			}
+		}
+		else if(action.equalsIgnoreCase("searchRemove")){
+			HashMap<String, String> employee = new HashMap<String,String>();
+			ArrayList	<HashMap<String, String>> employees = new ArrayList<HashMap<String, String>>();
+			String criteria = request.getParameter("criteria");
+			String value=request.getParameter("value");
+			switch (criteria) {
+			case "name":
+				employee.put("name", value);
+				break;
+			case "kinId":
+				employee.put("kinId", value);
+				break;
+				
+			case "emailId":
+				employee.put("emailId", value);
+				break;
+			default:
+				break;
+			}
+			try {
+				employees = employeeService.searchEmployee(employee);
+				HttpSession session = request.getSession();
+				session.setAttribute("employees", employees);
+				response.sendRedirect("removeEmployee.jsp");
+			} catch (Exception e) {
+				e.printStackTrace();
+			}
+		}
+		else if(action.equalsIgnoreCase(ACTION_REMOVE)){
+			HashMap<String, String> create = new HashMap<String,String>();
+			create.put("kinId", request.getParameter("Delete"));
+			create.put("name", request.getParameter("name"));
+			/*create.put("address", request.getParameter("address"));
+			create.put("phoneNumber", request.getParameter("phoneNumber"));
+			create.put("birthDate", request.getParameter("birthDate"));
+			create.put("joiningDate", request.getParameter("joiningDate"));
+			create.put("departmentId", request.getParameter("department"));
+			create.put("projectId",request.getParameter("project"));
+			create.put("roleId", request.getParameter("role"));
+			System.out.println(request.getParameter("birthDate"));*/
+			
+			try {
+				employeeService.removeEmployee(create);
+				response.sendRedirect("controller?action=getAll");
+			} catch (Exception e) {
+				e.printStackTrace();
+			}
+			
+			
+			
+			
 		}
 		
 		

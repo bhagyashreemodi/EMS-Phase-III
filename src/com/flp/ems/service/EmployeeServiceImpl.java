@@ -79,34 +79,9 @@ public class EmployeeServiceImpl implements IEmployeeService{
 	public boolean removeEmployee(HashMap<String, String> remEmployeeMap) throws Exception{
 		
 		Employee employee = new Employee();
-		employee.setName(remEmployeeMap.get("name"));
+		//employee.setName(remEmployeeMap.get("name"));
 		employee.setKinId(remEmployeeMap.get("kinId"));
-		employee.setEmailId(remEmployeeMap.get("emailId"));
-		ArrayList<Employee> employeesArr = this.employees.searchEmployee(employee);
-		if(employeesArr.size() == 0){
-			System.out.println("No such employee found");
-			return false;
-		}
-		else{
-			System.out.println("Do u want to delete?\n1.yes\n2. no");
-			if(new Scanner(System.in).nextInt() == 1){
-				
-				for (Employee employee2 : employeesArr) {
-					boolean flag = this.employees.removeEmployee(employee2.getKinId());
-					if(flag == false){
-						return false;
-					}
-					else{
-						continue;
-					}
-				}
-			}
-			else{
-				return false;
-				
-			}
-		}
-		return true;
+	return this.employees.removeEmployee(employee.getKinId());
 	}
 
 	@Override

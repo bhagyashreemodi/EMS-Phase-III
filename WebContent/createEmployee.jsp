@@ -27,9 +27,9 @@
     <div class="navigation" align="left">
       <ul>
         <li><a href="createEmployee.jsp">Add New Employee</a></li>
-        <li><a href="controller?action=seeAll">Modify Employee Details</a></li>
+        <li><a href="controller?action=seeAll&page=modifyEmployee.jsp">Modify Employee Details</a></li>
         <li><a href="search.jsp">Search Employee</a></li>
-        <li><a href="#">Remove Employee</a></li>
+        <li><a href="controller?action=seeAll&page=removeEmployee.jsp">Remove Employee</a></li>
         <li><a href="controller?action=getAll">See All Employees</a></li>
       </ul>
     </div>

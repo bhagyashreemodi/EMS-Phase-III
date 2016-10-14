@@ -73,6 +73,14 @@ a{
     overflow: auto;
 	
 }
+.remove{
+	position:absolute;
+    left: 20%;
+    top: 15%;
+    bottom: 0px;
+    width: 80%;
+    overflow: auto;
+}
 .search{
 	position:absolute;
     left: 20%;
