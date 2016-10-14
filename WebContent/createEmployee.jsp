@@ -4,6 +4,19 @@
 <html>
 <title>Home</title>
 <link rel="stylesheet" href="index.css">
+<script type="text/javascript">
+
+	function validate() {
+		 var name = document.forms["myForm"]["fname"].value;;
+		if(){
+			
+		}
+	}
+
+
+
+
+</script>
 </head>
 <body>
 
@@ -21,7 +34,7 @@
       </ul>
     </div>
     <div class="create">
-    	<form action="controller?action=create" method="post">
+    	<form action="controller?action=create" method="post" name="create">
     		<input type="text" name="name" placeholder="Name" required="required"><br><br>
  			<input type="text" name="address" placeholder="Address" required="required"> <br><br>
  			<input type="text" name="phoneNumber" placeholder="Mobile Number" required="required" size="10"><br><br>
@@ -45,7 +58,7 @@
 				<option value="2">2. BA4</option> 			
  			
  			</select><br><br>	
-    		<input type="submit" name="Save">
+    		<input type="submit" name="Save" onclick="validate()">
     	</form>	
     
     
